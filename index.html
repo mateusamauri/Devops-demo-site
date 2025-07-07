@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia DevOps Completo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Guia DevOps Completo</h1>
+    <p>Projeto demonstrativo com HTML, CSS e ferramentas DevOps na prática</p>
+  </header>
+
+  <main>
+    <!-- Docker -->
+    <section id="docker">
+      <h2>Docker</h2>
+      <p><strong>Docker</strong> é uma plataforma para desenvolver, enviar e executar aplicações em containers. Ele oferece isolamento, portabilidade e consistência entre ambientes de desenvolvimento, teste e produção.</p>
+      <h3>Imagem vs Container</h3>
+      <p><strong>Imagem:</strong> snapshot imutável com código e dependências. <br><strong>Container:</strong> execução viva da imagem.</p>
+      <h3>Dockerfile</h3>
+      <ul>
+        <li><code>FROM</code> — imagem base</li>
+        <li><code>RUN</code> — executa comandos</li>
+        <li><code>COPY</code> — copia arquivos</li>
+        <li><code>CMD</code> — comando de inicialização</li>
+      </ul>
+      <h3>Principais comandos</h3>
+      <ul>
+        <li><code>docker build -t minha-img .</code></li>
+        <li><code>docker run -p 80:80 minha-img</code></li>
+        <li><code>docker exec -it id bash</code></li>
+      </ul>
+    </section>
+
+    <!-- Kubernetes -->
+    <section id="kubernetes">
+      <h2>Kubernetes</h2>
+      <p><strong>Kubernetes</strong> é um orquestrador de containers. Ele gerencia o deploy, escala e manutenção de aplicações containerizadas.</p>
+      <ul>
+        <li><strong>Pod:</strong> menor unidade, contém container(es)</li>
+        <li><strong>Deployment:</strong> define número de réplicas</li>
+        <li><strong>Service:</strong> expõe o app internamente ou externamente</li>
+        <li><strong>YAML:</strong> arquivos de configuração</li>
+      </ul>
+      <h3>Comandos kubectl</h3>
+      <ul>
+        <li><code>kubectl apply -f arquivo.yaml</code></li>
+        <li><code>kubectl get pods</code></li>
+        <li><code>kubectl logs pod-name</code></li>
+      </ul>
+    </section>
+
+    <!-- Terraform -->
+    <section id="terraform">
+      <h2>Terraform</h2>
+      <p><strong>Terraform</strong> é uma ferramenta de IaC (Infraestrutura como Código). Permite criar e gerenciar recursos em nuvem com arquivos declarativos.</p>
+      <ul>
+        <li><code>init</code> — inicializa o projeto</li>
+        <li><code>plan</code> — mostra as mudanças</li>
+        <li><code>apply</code> — executa o plano</li>
+      </ul>
+      <p>Exemplo de recurso para criar uma EC2:</p>
+      <pre><code>resource "aws_instance" "web" {
+  ami = "ami-id"
+  instance_type = "t2.micro"
+}</code></pre>
+    </section>
+
+    <!-- AWS -->
+    <section id="aws">
+      <h2>AWS</h2>
+      <p><strong>AWS (Amazon Web Services)</strong> é uma plataforma de serviços em nuvem.</p>
+      <ul>
+        <li><strong>EC2:</strong> máquinas virtuais</li>
+        <li><strong>S3:</strong> armazenamento de objetos</li>
+        <li><strong>IAM:</strong> controle de acesso</li>
+        <li><strong>CloudWatch:</strong> logs e métricas</li>
+      </ul>
+      <h3>Configuração CLI</h3>
+      <pre><code>aws configure</code></pre>
+      <p>Fornece Access Key, Secret Key e região padrão.</p>
+    </section>
+
+    <!-- CI/CD -->
+    <section id="cicd">
+      <h2>CI/CD</h2>
+      <p><strong>CI (Integração Contínua)</strong> executa testes a cada push. <br><strong>CD (Entrega Contínua)</strong> automatiza o deploy.</p>
+      <ul>
+        <li><strong>Ferramentas:</strong> GitHub Actions, GitLab CI, Jenkins</li>
+        <li><strong>Pipelines:</strong> sequência de etapas automatizadas</li>
+      </ul>
+      <p>Exemplo de pipeline GitHub Actions:</p>
+      <pre><code>name: Deploy
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build -t app .</code></pre>
+    </section>
+
+    <!-- Git -->
+    <section id="git">
+      <h2>Git</h2>
+      <p><strong>Git</strong> é um sistema de controle de versão distribuído.</p>
+      <ul>
+        <li><code>git clone</code>, <code>git commit</code>, <code>git push</code></li>
+        <li><code>git branch</code>, <code>git merge</code></li>
+        <li>Trabalho com branches: feature, develop, main</li>
+      </ul>
+    </section>
+
+    <!-- Linux -->
+    <section id="linux">
+      <h2>Linux</h2>
+      <p><strong>Linux</strong> é um sistema operacional usado amplamente em servidores e ambientes de nuvem.</p>
+      <ul>
+        <li><code>ls</code>, <code>chmod</code>, <code>tail</code>, <code>grep</code></li>
+        <li>Permissões: leitura, escrita, execução (rwx)</li>
+      </ul>
+    </section>
+
+    <!-- Redes -->
+    <section id="redes">
+      <h2>Redes</h2>
+      <p>Conceitos básicos essenciais em DevOps:</p>
+      <ul>
+        <li><strong>DNS:</strong> resolve nomes em IP</li>
+        <li><strong>HTTP vs HTTPS:</strong> protocolo + segurança via TLS/SSL</li>
+        <li><strong>Portas:</strong> 80 (HTTP), 443 (HTTPS), 22 (SSH)</li>
+      </ul>
+    </section>
+
+    <!-- Monitoramento -->
+    <section id="monitoramento">
+      <h2>Monitoramento</h2>
+      <p>Ferramentas e práticas para garantir visibilidade e saúde da aplicação.</p>
+      <ul>
+        <li><strong>Logs:</strong> CloudWatch, ELK</li>
+        <li><strong>Métricas:</strong> Prometheus + Grafana</li>
+        <li><strong>Alertas:</strong> thresholds, webhooks, e-mail</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Desenvolvido por Mateus • Projeto DevOps para prática e entrevistas</p>
+  </footer>
+</body>
+</html>
