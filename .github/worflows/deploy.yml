@@ -30,10 +30,15 @@ jobs:
       run: |
         docker push mateusamauri/devops-site:latest
 
-    - name: Setup kubectl
+    - name: Instalar kubectl
       uses: azure/setup-kubectl@v3
       with:
         version: 'latest'
+
+    - name: Configurar Kubeconfig
+      run: |
+        mkdir -p ~/.kube
+        echo "${{ secrets.KUBECONFIG_DATA }}" > ~/.kube/config
 
     - name: Aplicar manifestos Kubernetes
       run: |
