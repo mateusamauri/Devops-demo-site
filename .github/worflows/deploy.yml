@@ -35,11 +35,6 @@ jobs:
       with:
         version: 'latest'
 
-    - name: Configurar Kubeconfig
-      run: |
-        mkdir -p ~/.kube
-        echo "${{ secrets.KUBECONFIG_DATA }}" > ~/.kube/config
-
     - name: Aplicar manifestos Kubernetes
       run: |
         kubectl apply -f k8s/deployment.yaml
